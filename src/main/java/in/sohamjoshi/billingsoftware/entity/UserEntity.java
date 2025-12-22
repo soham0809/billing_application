@@ -1,38 +1,38 @@
 package in.sohamjoshi.billingsoftware.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "tbl_category")
+@Table(name = "tbl_users ")
 @Builder
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class CategoryEntity {
+@NoArgsConstructor
+public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     @Column(unique = true)
-    private String categoryId ;
-    @Column(unique = true)
-    private String name ;
-    private String description;
-    private String bgColor;
-    private String imgUrl;
+    private String userId ;
+    private String name;
+    private String email ;
+    private String password ;
+    private String role ;
     @CreationTimestamp
     @Column(updatable = false)
-    private Timestamp createdAt;
-    @CreationTimestamp
-    private Timestamp updatedAt;
+    private Timestamp createdAt ;
+    @UpdateTimestamp
+    private Timestamp updatedAt ;
 
 
 }
